@@ -9,7 +9,7 @@ class CategoryCreate(BaseModel):
     """
     name: str = Field(..., min_length=3, max_length=50,
                       description="Название категории (3-50 символов)")
-    parent_id: int | None = Field(None, descriplion="ID родительской катешлоиии, если есть")
+    parent_id: int | None = Field(None, descriplion="ID родительской категории, если есть")
 
 
 class Category(BaseModel):
@@ -32,7 +32,7 @@ class ProductCreate(BaseModel):
     """
     name: str = Field(..., min_length=3, max_length=100,
                       description="Название товара (3-100 символов)")
-    descriotion: str | None = Field(defualt=None, max_length=500,
+    description: str | None = Field(defualt=None, max_length=500,
                                     description="Описание товара (до 500 символов)")
     price: Decimal = Field(..., gt=0, description="Цена товара (Больше 0)")
     image_url: str | None = Field(default=None, max_length=200, description="URL изображения товара")
